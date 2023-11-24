@@ -3,12 +3,15 @@ import './ToDo.css'
 import { useTodo } from '../../hooks/useTodo'
 import { ToDoAdd } from '../ToDoAdd/ToDoAdd'
 import { Todolist } from '../../components/TodoList/Todolist'
+import { useContext, useEffect } from 'react'
+import { TaskContext } from '../../components/context/tasks'
 
 export const icono2 = () => {
   return <IconTrash />
 }
 
-export const ToDo = () => {
+export const ToDo = ({ todo }) => {
+  const { dispatch } = useContext(TaskContext)
   const {
     todos,
     todosCount,
@@ -18,6 +21,20 @@ export const ToDo = () => {
     handleCompleteTodo,
     handleUpdateTodo
   } = useTodo()
+
+  useEffect(() => {
+    todoGet()
+  }, [])
+
+  const todoGet = () => {
+    fetch('https://birsbane-numbat-zjcf.1.us-1.fl0.io/api/todo?userId=', {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' }
+    }).then((response) => response.json())
+      .then((data) => {
+        dispatch({ type: 'ADD_TODO', payload: data.user })
+      })
+  }
 
   return (
     <>
@@ -36,6 +53,15 @@ export const ToDo = () => {
       <div>
         <ToDoAdd handleNewTodo={handleNewTodo} />
       </div>
+      <tr>
+        <td>{todo && todo.name && todo.name}</td>
+        <td>{todo && todo.description && todo.description}</td>
+        <td>{todo && todo.finisDate && todo.finisDate}</td>
+        <td>
+          {/* <button onClick={() => dispatch({ type: 'SET_CURRENT_PRODUCT', payload: todo })}>Editar</button> */}
+          {/* <button onClick={handleDeleteTodo}>Eliminar</button> */}
+        </td>
+      </tr>
     </>
   )
 }

@@ -14,13 +14,15 @@ export const Todolist = ({ todos, handleUpdateTodo, handleDeleteTodo, handleComp
         />
       ))}
       <div>
-        <tr>
-          <th>Nombre</th>
-          <th>Descripción</th>
-          <th>Finalización</th>
-          <th>Estado</th>
-          <Todoitem />
-        </tr>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Finalización</th>
+            <th>Estado</th>
+            <Todoitem />
+          </tr>
+        </thead>
         <tbody>
           <tr>
             {
