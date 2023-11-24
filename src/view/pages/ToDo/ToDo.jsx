@@ -3,15 +3,11 @@ import './ToDo.css'
 import { useTodo } from '../../hooks/useTodo'
 import { ToDoAdd } from '../ToDoAdd/ToDoAdd'
 import { Todolist } from '../../components/TodoList/Todolist'
-import { useContext, useEffect } from 'react'
-import { TaskContext } from '../../components/context/tasks'
-
 export const icono2 = () => {
   return <IconTrash />
 }
 
 export const ToDo = ({ todo }) => {
-  const { dispatch, state } = useContext(TaskContext)
   const {
     todos,
     todosCount,
@@ -21,20 +17,6 @@ export const ToDo = ({ todo }) => {
     handleCompleteTodo,
     handleUpdateTodo
   } = useTodo()
-
-  useEffect(() => {
-    todoGet()
-  }, [])
-
-  const todoGet = () => {
-    fetch('https://birsbane-numbat-zjcf.1.us-1.fl0.io/api/todo?userId=' + state.user._id, {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' }
-    }).then((response) => response.json())
-      .then((data) => {
-        dispatch({ type: 'GET_TODO', payload: data.todos })
-      })
-  }
 
   return (
     <>

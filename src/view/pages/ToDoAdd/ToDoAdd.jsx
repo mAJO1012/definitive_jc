@@ -1,7 +1,8 @@
 import { IconArrowLeft } from '@tabler/icons-react'
 import './ToDoAdd.css'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { TaskContext } from '../../components/context/tasks'
+import { Todolist } from '../../components/TodoList/Todolist'
 
 export const icono = () => {
   return <IconArrowLeft />
@@ -27,6 +28,21 @@ export const ToDoAdd = () => {
       dispatch({ type: 'ADD_TODO', payload: data.todo })
     })
   }
+
+  useEffect(() => {
+    todoGet()
+  }, [])
+
+  const todoGet = () => {
+    fetch('https://birsbane-numbat-zjcf.1.us-1.fl0.io/api/todo?userId=' + state.user._id, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' }
+    }).then((response) => response.json())
+      .then((data) => {
+        dispatch({ type: 'GET_TODO', payload: data.todos })
+      })
+  }
+
   return (
     <form onSubmit={onFormSubmit}>
       <div className='container'>
@@ -55,6 +71,7 @@ export const ToDoAdd = () => {
           </div>
         </div>
       </div>
+      <Todolist />
     </form>
   )
 }
