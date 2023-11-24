@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from 'react'
 import { Todoitem } from '../Todoitem/Todoitem'
-import { TaskContext } from '../context/tasks'
 
 export const Todolist = ({ todos, handleUpdateTodo, handleDeleteTodo, handleCompleteTodo, name, description, finishDate, isCompleted }) => {
   /* useEffect(() => {
