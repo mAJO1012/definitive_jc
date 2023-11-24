@@ -29,7 +29,7 @@ export const Home = () => {
     })
       .then((data) => {
         dispatch({ type: 'SIGNUP_USER', payload: data.user })
-        navigate('/todo')
+        navigate('/todolist')
       })
   }
   return (

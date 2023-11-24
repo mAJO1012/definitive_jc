@@ -3,7 +3,7 @@ import { Home } from '../pages/Home'
 import { Form } from '../pages/Form'
 import { Layout } from '../components/Layout/Layout'
 import { ToDoAdd } from '../pages/ToDoAdd/ToDoAdd'
-import { ToDo } from '../pages/ToDo/ToDo'
+import { Todolist } from '../components/TodoList/Todolist'
 
 export const router = createBrowserRouter([
   {
@@ -19,8 +19,8 @@ export const router = createBrowserRouter([
     Component: Layout,
     children: [
       {
-        path: 'toDo',
-        Component: ToDo
+        path: 'toDolist',
+        Component: Todolist
       },
       {
         path: 'toDoAdd',

@@ -1,38 +1,42 @@
+import { useContext, useEffect } from 'react'
 import { ToDo } from '../../pages/ToDo/ToDo'
-import { Todoitem } from '../Todoitem/Todoitem'
+import { TaskContext } from '../context/tasks'
 
-export const Todolist = ({ todos, handleUpdateTodo, handleDeleteTodo, handleCompleteTodo, todoList }) => {
+export const Todolist = () => {
+  const { state, dispatch } = useContext(TaskContext)
+
+  useEffect(() => {
+    todoGet()
+  }, [])
+
+  const todoGet = () => {
+    fetch('https://birsbane-numbat-zjcf.1.us-1.fl0.io/api/todo?userId=' + state.user._id, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' }
+    }).then((response) => response.json())
+      .then((data) => {
+        dispatch({ type: 'GET_TODO', payload: data.todos })
+      })
+  }
   return (
-    <ul>
-      {todos.map(todo => (
-        <Todoitem
-          key={todo.userId}
-          todo={todo}
-          handleUpdateTodo={handleUpdateTodo}
-          handleDeleteTodo={handleDeleteTodo}
-          handleCompleteTodo={handleCompleteTodo}
-        />
-      ))}
-      <div>
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Descripción</th>
-            <th>Finalización</th>
-            <th>Estado</th>
-            <Todoitem />
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            {
-          todoList && todoList.map(todo => (
-            <ToDo key={todo._id} todo={todoList} />
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Finalización</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          {
+          state.todos && state.todos.map(todo => (
+            <ToDo key={todo._id} todo={todo} />
           ))
         }
-          </tr>
-        </tbody>
-      </div>
-    </ul>
+        </tr>
+      </tbody>
+    </table>
   )
 }

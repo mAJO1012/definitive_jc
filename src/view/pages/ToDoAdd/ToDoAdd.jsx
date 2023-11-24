@@ -1,8 +1,7 @@
 import { IconArrowLeft } from '@tabler/icons-react'
 import './ToDoAdd.css'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { TaskContext } from '../../components/context/tasks'
-import { ToDo } from '../ToDo/ToDo'
 
 export const icono = () => {
   return <IconArrowLeft />
@@ -57,7 +56,6 @@ export const ToDoAdd = () => {
           </div>
         </div>
       </div>
-      <ToDo />
     </form>
   )
 }
