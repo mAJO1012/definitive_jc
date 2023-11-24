@@ -29,6 +29,13 @@ export const Todolist = ({ todos, handleUpdateTodo, handleDeleteTodo, handleComp
 
   return (
     <ul>
+      <tr>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Fecha de finalización</th>
+        <th>Estado</th>
+        <Todoitem />
+      </tr>
       {todos.map(todo => (
         <Todoitem
           key={todo.userId}
@@ -39,12 +46,6 @@ export const Todolist = ({ todos, handleUpdateTodo, handleDeleteTodo, handleComp
         />
       ))}
       <div>
-        <tr>
-          <th>Nombre</th>
-          <th>Descripción</th>
-          <th>Fecha de finalización</th>
-          <th>Estado</th>
-        </tr>
         <tbody>
           <tr>
             <td>{setName}</td>

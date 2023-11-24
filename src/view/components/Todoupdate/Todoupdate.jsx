@@ -1,4 +1,4 @@
-import { IconEdit } from '@tabler/icons-react'
+// import { IconEdit } from '@tabler/icons-react'
 
 export const Todoupdate = () => {
 /* const { state, dispatch } = useContext(TaskContext)
@@ -18,14 +18,14 @@ export const Todoupdate = () => {
       console.log(data)
       dispatch({ type: 'UPDATE_TODO', payload: data.user })
     })
-  } */
+  }
   return (
     <form>
       <div className='container'>
         <div className='form-info'>
           <div className='form-info-childs'>
             <div className='text'>
-              <h3 className='crear_cuenta'>Agregar una tarea</h3>
+              <h3 className='crear_cuenta'>Editar Tarea</h3>
             </div>
 
             <div>
@@ -48,5 +48,5 @@ export const Todoupdate = () => {
         </div>
       </div>
     </form>
-  )
+  ) */
 }

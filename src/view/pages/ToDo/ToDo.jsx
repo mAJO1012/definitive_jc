@@ -1,13 +1,8 @@
-import { IconEdit, IconTrash } from '@tabler/icons-react'
+import { IconTrash } from '@tabler/icons-react'
 import './ToDo.css'
 import { useTodo } from '../../hooks/useTodo'
-import { Todoitem } from '../../components/Todoitem/Todoitem'
 import { ToDoAdd } from '../ToDoAdd/ToDoAdd'
 import { Todolist } from '../../components/TodoList/Todolist'
-
-export const icono = () => {
-  return <IconEdit />
-}
 
 export const icono2 = () => {
   return <IconTrash />
@@ -32,16 +27,15 @@ export const ToDo = () => {
           <span>N° de tareas: {todosCount}</span>
         </div>
       </section>
-      <div>
-        <ToDoAdd handleNewTodo={handleNewTodo} />
-      </div>
       <Todolist
         todos={todos}
         handleUpdateTodo={handleUpdateTodo}
         handleDeleteTodo={handleDeleteTodo}
         handleCompleteTodo={handleCompleteTodo}
       />
-      <Todoitem />
+      <div>
+        <ToDoAdd handleNewTodo={handleNewTodo} />
+      </div>
     </>
   )
 }
