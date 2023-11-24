@@ -23,8 +23,8 @@ export const ToDo = () => {
     <>
       <section className='table__header'>
         <div>
-          <span>Pendientes: {pendingTodosCount}</span>
           <span>N° de tareas: {todosCount}</span>
+          <span>Pendientes: {pendingTodosCount}</span>
         </div>
       </section>
       <Todolist
