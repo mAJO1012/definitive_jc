@@ -1,4 +1,3 @@
-import { useContext, useEffect, useState } from 'react'
 import { Todoitem } from '../Todoitem/Todoitem'
 
 export const Todolist = ({ todos, handleUpdateTodo, handleDeleteTodo, handleCompleteTodo, name, description, finishDate, isCompleted }) => {
