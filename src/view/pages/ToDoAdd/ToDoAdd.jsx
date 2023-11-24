@@ -24,7 +24,7 @@ export const ToDoAdd = () => {
       })
     }).then((data) => {
       console.log(data)
-      dispatch({ type: 'SIGNUP_USER', payload: data.user })
+      dispatch({ type: 'ADD_TODO', payload: data.todo })
     })
   }
   return (

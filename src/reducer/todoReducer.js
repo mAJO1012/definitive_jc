@@ -1,5 +1,6 @@
 export const initialState = {
-  user: null
+  user: null,
+  todos: []
 }
 
 export const todoReducer = (state, action) => {
@@ -11,7 +12,7 @@ export const todoReducer = (state, action) => {
       globalThis.localStorage.setItem('USER', JSON.stringify(action.payload))
       return { ...state, user: action.payload }
     case 'ADD_TODO':
-      return [...state, action.payload]
+      return { ...state, todos: [...state.todos, action.payload] }
 
     case 'DELETE_TODO':
       return state.filter(todo => todo.userid !== action.payload)
