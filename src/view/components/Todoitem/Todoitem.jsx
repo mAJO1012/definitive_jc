@@ -4,7 +4,7 @@ import './Todoitem.css'
 
 export const Todoitem = ({ todo, handleUpdateTodo, handleDeleteTodo, handleCompleteTodo }) => {
   return (
-    <li>
+    <>
       <span
         onClick={() => handleCompleteTodo(todo.userId)}
       >
@@ -12,6 +12,6 @@ export const Todoitem = ({ todo, handleUpdateTodo, handleDeleteTodo, handleCompl
       </span>
       <Todoupdate todo={todo} handleUpdateTodo={handleUpdateTodo} />
       <button className='btn-delete' onClick={() => handleDeleteTodo(todo.user._Id)}><IconTrash color='black' size={36} /></button>
-    </li>
+    </>
   )
 }

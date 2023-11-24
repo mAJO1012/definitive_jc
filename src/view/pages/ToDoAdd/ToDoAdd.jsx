@@ -33,7 +33,7 @@ export const ToDoAdd = () => {
         <div className='form-info'>
           <div className='form-info-childs'>
             <div className='text'>
-              <h3 className='crear_cuenta'>¡Hola! Aquí puedes agregar una tarea</h3>
+              <h3 className='crear_cuenta'>Agregar tarea</h3>
             </div>
 
             <div>
