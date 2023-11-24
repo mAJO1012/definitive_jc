@@ -39,30 +39,3 @@ export const ToDo = () => {
     </>
   )
 }
-/* const list = () => {
-    const { dispatch, state } = useContext(TaskContext)
-
-    const [name, setName] = useState([])
-    const [description, setDescription] = useState([])
-    const [finishDate, setFinishDate] = useState([])
-
-    useEffect(() => {
-      Todolist()
-    }, [])
-
-    const Todolist = (event) => {
-      fetch('https://birsbane-numbat-zjcf.1.us-1.fl0.io/api/user/auth', {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: event.target.elements.name.value,
-          description: event.target.elements.description.value,
-          finishDate: event.target.elements.finishDate.value,
-          isCompleted: false,
-          userId: state.user._id
-        })
-      }).then((data) => {
-        console.log(data)
-        dispatch({ type: 'ADD_TODO', payload: data.user })
-      })
-    } */
