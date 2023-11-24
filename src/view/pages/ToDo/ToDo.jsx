@@ -11,7 +11,7 @@ export const icono2 = () => {
 }
 
 export const ToDo = ({ todo }) => {
-  const { dispatch } = useContext(TaskContext)
+  const { dispatch, state } = useContext(TaskContext)
   const {
     todos,
     todosCount,
@@ -27,12 +27,12 @@ export const ToDo = ({ todo }) => {
   }, [])
 
   const todoGet = () => {
-    fetch('https://birsbane-numbat-zjcf.1.us-1.fl0.io/api/todo?userId=', {
+    fetch('https://birsbane-numbat-zjcf.1.us-1.fl0.io/api/todo?userId=' + state.user._id, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' }
     }).then((response) => response.json())
       .then((data) => {
-        dispatch({ type: 'ADD_TODO', payload: data.user })
+        dispatch({ type: 'GET_TODO', payload: data.todos })
       })
   }
 

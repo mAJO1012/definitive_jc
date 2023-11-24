@@ -14,6 +14,9 @@ export const todoReducer = (state, action) => {
     case 'ADD_TODO':
       return { ...state, todos: [...state.todos, action.payload] }
 
+    case 'GET_TODO':
+      return { ...state, todos: action.payload }
+
     case 'DELETE_TODO':
       return state.filter(todo => todo.userid !== action.payload)
 
