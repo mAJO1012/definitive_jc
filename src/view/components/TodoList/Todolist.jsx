@@ -1,7 +1,7 @@
 import { Todoitem } from '../Todoitem/Todoitem'
 
 export const Todolist = ({ todos, handleUpdateTodo, handleDeleteTodo, handleCompleteTodo, name, description, finishDate, isCompleted }) => {
-  useEffect(() => {
+  /* useEffect(() => {
     onReturn()
   }, [])
 
@@ -25,7 +25,7 @@ export const Todolist = ({ todos, handleUpdateTodo, handleDeleteTodo, handleComp
       console.log(data)
       dispatch({ type: 'ADD_TODO', payload: data.todo })
     })
-  }
+  } */
   return (
     <ul>
       {todos.map(todo => (
